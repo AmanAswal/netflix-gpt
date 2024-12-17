@@ -6,6 +6,7 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(true);
   const email = useRef(null);
+  const name = useRef(null);
   const password = useRef(null);
 
   const toggleSignUpForm = () => {
@@ -16,8 +17,6 @@ const Login = () => {
     // validate the form data
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
-
-    // console.log(email.current.value, password.current.value);
   };
 
   return (
@@ -40,6 +39,7 @@ const Login = () => {
 
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Name"
             className="p-4 my-4 w-full bg-gray-600 bg-opacity-50 rounded-lg"
